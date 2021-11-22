@@ -33,6 +33,12 @@ Go to the folder in which you want to place it and run:
 cargo generate --git https://github.com/CosmWasm/cw-template.git --name PROJECT_NAME
 ````
 
+**Clean template**
+
+```sh
+cargo generate --git https://github.com/CosmWasm/cw-template.git --branch clean-1.0-beta --name PROJECT_NAME
+````
+
 **Older Version**
 
 Pass version as branch flag:
