@@ -33,9 +33,7 @@ pub fn instantiate(
     store_config(
         deps.storage,
         &Config {
-            anchor_token: deps.api.addr_canonicalize(&msg.anchor_token)?,
             staking_token: deps.api.addr_canonicalize(&msg.staking_token)?,
-            distribution_schedule: msg.distribution_schedule,
         },
     )?;
     
