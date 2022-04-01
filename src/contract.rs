@@ -10,6 +10,8 @@ use crate::{
     },
 };
 
+use cw20::{Cw20ExecuteMsg, Cw20ReceiveMsg};
+
 // use cw2::set_contract_version;
 
 // use crate::error::ContractError;
