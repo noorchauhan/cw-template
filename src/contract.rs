@@ -70,3 +70,27 @@ pub fn receive_cw20(
     }
 }
 
+pub fn bond(deps: DepsMut, env: Env, sender_addr: Addr, amount: Uint128) -> StdResult<Response> {
+    let sender_addr_raw: CanonicalAddr = deps.api.addr_canonicalize(sender_addr.as_str())?;
+
+    let config: Config = read_config(deps.storage)?;
+//     let mut state: State = read_state(deps.storage)?;
+    let mut staker_info: StakerInfo = read_staker_info(deps.storage, &sender_addr_raw)?;
+
+    // Compute global reward & staker reward
+//     compute_reward(&config, &mut state, env.block.time.seconds());
+//     compute_staker_reward(&state, &mut staker_info)?;
+
+    // Increase bond_amount
+    increase_bond_amount(&mut state, &mut staker_info, amount);
+
+    // Store updated state with staker's staker_info
+    store_staker_info(deps.storage, &sender_addr_raw, &staker_info)?;
+    store_state(deps.storage, &state)?;
+
+    Ok(Response::new().add_attributes(vec![
+        ("action", "bond"),
+        ("owner", sender_addr.as_str()),
+        ("amount", amount.to_string().as_str()),
+    ]))
+}
