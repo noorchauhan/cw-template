@@ -33,7 +33,7 @@ pub fn read_config(storage: &dyn Storage) -> StdResult<Config> {
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct StakerInfo {
-    pub bond-amount: Uint128,
+    pub bond_amount: Uint128,
 }
 
 pub fn store_staker_info(
