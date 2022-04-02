@@ -94,3 +94,10 @@ pub fn bond(deps: DepsMut, env: Env, sender_addr: Addr, amount: Uint128) -> StdR
         ("amount", amount.to_string().as_str()),
     ]))
 }
+
+
+fn increase_bond_amount( staker_info: &mut StakerInfo, amount: Uint128) {
+//     state.total_bond_amount += amount;
+    staker_info.bond_amount += amount;
+}
+
