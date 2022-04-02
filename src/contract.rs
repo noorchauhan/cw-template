@@ -82,11 +82,11 @@ pub fn bond(deps: DepsMut, env: Env, sender_addr: Addr, amount: Uint128) -> StdR
 //     compute_staker_reward(&state, &mut staker_info)?;
 
     // Increase bond_amount
-    increase_bond_amount(&mut state, &mut staker_info, amount);
+    increase_bond_amount(&mut staker_info, amount);
 
     // Store updated state with staker's staker_info
     store_staker_info(deps.storage, &sender_addr_raw, &staker_info)?;
-    store_state(deps.storage, &state)?;
+//     store_state(deps.storage, &state)?;
 
     Ok(Response::new().add_attributes(vec![
         ("action", "bond"),
