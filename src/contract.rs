@@ -38,8 +38,9 @@ pub fn instantiate(
     )?;
     
     //start here
-    set_contract_version(deps.storage, CONTRACT_NAME, CONTRACT_VERSION)?;
-    STATE.save(deps.storage, &state)?;
+//     set_contract_version(deps.storage, CONTRACT_NAME, CONTRACT_VERSION)?;
+//     STATE.save(deps.storage, &state)?;
+    
 
     Ok(Response::new()
         .add_attribute("method", "instantiate")
